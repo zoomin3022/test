@@ -4,10 +4,13 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/test
+
 permissions:
   - object: /home/ubuntu/test/
+    pattern: "**"
     owner: ubuntu
     group: ubuntu
+
 hooks:
   AfterInstall:
     - location: scripts/deploy.sh
