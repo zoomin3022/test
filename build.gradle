@@ -26,6 +26,32 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //jpa dependency
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    //redis dependency
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    //spring security dependency
+
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    //runtimeOnly 'com.mysql:mysql-connector-j'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
+    //jwt dependencies
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+    //gson dependency
+
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.1'
+    //p6spy dependency
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+    //Swagger dependency
 }
 
 tasks.named('test') {
