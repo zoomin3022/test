@@ -35,8 +35,8 @@ dependencies {
     //spring security dependency
 
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    //runtimeOnly 'com.mysql:mysql-connector-j'
-    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+//    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
