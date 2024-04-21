@@ -63,7 +63,7 @@ jobs:
 
     - name: Setup SSH Tunnel
       run: |
-        ssh -f -o ExitOnForwardFailure=yes -L 3306:${{ secrets.RDS_HOST }}:3306 ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} -i path/to/ssh/key -N
+        ssh -f -o ExitOnForwardFailure=yes -L 3306:${{ secrets.RDS_HOST }}:3306 ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} -i ~/.ssh/id_rsa -N
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
