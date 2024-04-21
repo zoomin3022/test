@@ -11,10 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
-import org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
+import org.springframework.security.config.annotation.web.configurers.*;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -61,14 +58,14 @@ public class WebSecurityConfig {
         return http
                 .cors(corsCustomizer -> corsCustomizer.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOriginPatterns(Collections.singletonList("https://*.example.com"));
+                    config.setAllowedOriginPatterns(Collections.singletonList("*"));
                     config.setAllowedMethods(Collections.singletonList("*"));
                     config.setAllowCredentials(true);
                     config.setAllowedHeaders(Collections.singletonList("*"));
                     config.setMaxAge(3600L); //1시간
                     return config;
                 }))
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(CsrfConfigurer::disable)
                 //csrf는 stateless에서는 불필요 (쿠키사용하지 않으므로 X)
                 .httpBasic(HttpBasicConfigurer::disable)
                 .formLogin(FormLoginConfigurer::disable)
